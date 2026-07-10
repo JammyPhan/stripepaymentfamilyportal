@@ -3,20 +3,22 @@ export function formatCurrency(amount: number): string {
     style: 'currency',
     currency: 'USD',
     minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
   }).format(amount);
 }
 
-export function formatDate(date: string | null): string {
-  if (!date) return '—';
-  return new Date(date + 'T00:00:00').toLocaleDateString('en-US', {
+export function formatDate(dateStr: string): string {
+  const date = new Date(dateStr);
+  return date.toLocaleDateString('en-US', {
     month: 'short',
     day: 'numeric',
     year: 'numeric',
   });
 }
 
-export function formatDateTime(date: string): string {
-  return new Date(date).toLocaleDateString('en-US', {
+export function formatDateTime(dateStr: string): string {
+  const date = new Date(dateStr);
+  return date.toLocaleString('en-US', {
     month: 'short',
     day: 'numeric',
     year: 'numeric',
@@ -25,50 +27,34 @@ export function formatDateTime(date: string): string {
   });
 }
 
-export function calculateAge(dateOfBirth: string | null): number | null {
-  if (!dateOfBirth) return null;
+export function calculateAge(dob: string): number | null {
+  const birthDate = new Date(dob);
+  if (isNaN(birthDate.getTime())) return null;
   const today = new Date();
-  const birth = new Date(dateOfBirth + 'T00:00:00');
-  let age = today.getFullYear() - birth.getFullYear();
-  const m = today.getMonth() - birth.getMonth();
-  if (m < 0 || (m === 0 && today.getDate() < birth.getDate())) {
+  let age = today.getFullYear() - birthDate.getFullYear();
+  const monthDiff = today.getMonth() - birthDate.getMonth();
+  if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
     age--;
   }
   return age;
 }
 
 export function sessionStatusBadge(status: string): string {
-  switch (status) {
-    case 'completed':
-      return 'badge-success';
-    case 'scheduled':
-      return 'badge-info';
-    case 'cancelled':
-      return 'badge-neutral';
-    default:
-      return 'badge-neutral';
-  }
+  const map: Record<string, string> = {
+    scheduled: 'badge-primary',
+    completed: 'badge-success',
+    cancelled: 'badge-danger',
+    'no-show': 'badge-warning',
+  };
+  return map[status] ?? 'badge-neutral';
 }
 
 export function paymentStatusBadge(status: string): string {
-  switch (status) {
-    case 'paid':
-      return 'badge-success';
-    case 'partial':
-      return 'badge-warning';
-    case 'pending':
-      return 'badge-danger';
-    default:
-      return 'badge-neutral';
-  }
-}
-
-export function cardBrandIcon(brand: string | null): string {
-  if (!brand) return 'card';
-  const b = brand.toLowerCase();
-  if (b === 'visa') return 'cc-visa';
-  if (b === 'mastercard') return 'cc-mastercard';
-  if (b === 'amex' || b === 'american express') return 'cc-amex';
-  if (b === 'discover') return 'cc-discover';
-  return 'card';
+  const map: Record<string, string> = {
+    paid: 'badge-success',
+    pending: 'badge-warning',
+    partial: 'badge-primary',
+    refunded: 'badge-neutral',
+  };
+  return map[status] ?? 'badge-neutral';
 }
