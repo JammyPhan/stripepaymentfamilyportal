@@ -46,12 +46,10 @@ export function Navbar({ currentView, onNavigate }: NavbarProps) {
   return (
     <div className="absolute left-1/2 top-6 z-50 w-[calc(100%-2rem)] max-w-6xl -translate-x-1/2 px-0 sm:top-8">
       <nav className="flex items-center justify-between rounded-full bg-charcoal px-4 py-3 sm:px-6">
-        {/* Logo */}
         <button onClick={() => handleNavClick({ name: 'home' })} className="flex-shrink-0 transition-transform duration-150 ease-brand hover:scale-[1.02]">
           <Logo dark />
         </button>
 
-        {/* Desktop nav links */}
         <div className="hidden items-center gap-1 lg:flex">
           {navItems.map((item) => (
             <div key={item.label} className="relative">
@@ -92,7 +90,6 @@ export function Navbar({ currentView, onNavigate }: NavbarProps) {
           ))}
         </div>
 
-        {/* Desktop CTA */}
         <div className="hidden lg:block">
           <button
             onClick={() => handleNavClick({ name: 'onboarding' })}
@@ -102,7 +99,6 @@ export function Navbar({ currentView, onNavigate }: NavbarProps) {
           </button>
         </div>
 
-        {/* Mobile menu toggle */}
         <button
           onClick={() => setMobileOpen(!mobileOpen)}
           className="flex h-9 w-9 items-center justify-center rounded-full text-cream-100 lg:hidden"
@@ -111,7 +107,6 @@ export function Navbar({ currentView, onNavigate }: NavbarProps) {
         </button>
       </nav>
 
-      {/* Mobile dropdown */}
       {mobileOpen && (
         <div className="mt-2 rounded-2xl bg-charcoal p-4 animate-slide-down lg:hidden">
           <div className="flex flex-col gap-1">
