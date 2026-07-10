@@ -78,8 +78,8 @@ function App() {
       <main>
         {view.name === 'home' && <HomePage onNavigate={handleNavigate} />}
         {view.name === 'onboarding' && <OnboardingPage onNavigate={handleNavigate} />}
-        {view.name === 'patient-dashboard' && <PatientDashboard patientId={view.patientId} onNavigate={handleNavigate} />}
-        {view.name === 'poa-portal' && <PoaPortal token={view.token} onNavigate={handleNavigate} />}
+        {view.name === 'patient-dashboard' && view.patientId && <PatientDashboard patientId={view.patientId} onNavigate={handleNavigate} />}
+        {view.name === 'poa-portal' && view.token && <PoaPortal token={view.token} onNavigate={handleNavigate} />}
         {view.name === 'admin' && <AdminPage onNavigate={handleNavigate} />}
       </main>
 
