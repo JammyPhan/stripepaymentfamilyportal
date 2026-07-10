@@ -223,38 +223,15 @@ export function StripePaymentForm({
             <div className="grid grid-cols-3 gap-3">
               <div>
                 <label className="label">Expiry</label>
-                <input
-                  type="text"
-                  inputMode="numeric"
-                  placeholder="MM/YY"
-                  value={demoExp}
-                  onChange={(e) => setDemoExp(formatExp(e.target.value))}
-                  className="input font-mono"
-                />
+                <input type="text" inputMode="numeric" placeholder="MM/YY" value={demoExp} onChange={(e) => setDemoExp(formatExp(e.target.value))} className="input font-mono" />
               </div>
               <div>
                 <label className="label">CVC</label>
-                <input
-                  type="text"
-                  inputMode="numeric"
-                  placeholder="123"
-                  maxLength={4}
-                  value={demoCvc}
-                  onChange={(e) => setDemoCvc(e.target.value.replace(/\D/g, ''))}
-                  className="input font-mono"
-                />
+                <input type="text" inputMode="numeric" placeholder="123" maxLength={4} value={demoCvc} onChange={(e) => setDemoCvc(e.target.value.replace(/\D/g, ''))} className="input font-mono" />
               </div>
               <div>
                 <label className="label">ZIP</label>
-                <input
-                  type="text"
-                  inputMode="numeric"
-                  placeholder="12345"
-                  maxLength={5}
-                  value={demoZip}
-                  onChange={(e) => setDemoZip(e.target.value.replace(/\D/g, ''))}
-                  className="input font-mono"
-                />
+                <input type="text" inputMode="numeric" placeholder="12345" maxLength={5} value={demoZip} onChange={(e) => setDemoZip(e.target.value.replace(/\D/g, ''))} className="input font-mono" />
               </div>
             </div>
           </>
@@ -278,21 +255,11 @@ export function StripePaymentForm({
             Cancel
           </button>
         )}
-        <button
-          onClick={demoMode ? handleDemoPay : handleRealStripe}
-          disabled={processing}
-          className="btn-primary flex-1"
-        >
+        <button onClick={demoMode ? handleDemoPay : handleRealStripe} disabled={processing} className="btn-primary flex-1">
           {processing ? (
-            <>
-              <Loader2 className="h-4 w-4 animate-spin" />
-              Processing...
-            </>
+            <><Loader2 className="h-4 w-4 animate-spin" /> Processing...</>
           ) : (
-            <>
-              <Lock className="h-4 w-4" />
-              {ctaLabel} · {currencyStr}
-            </>
+            <><Lock className="h-4 w-4" /> {ctaLabel} · {currencyStr}</>
           )}
         </button>
       </div>
