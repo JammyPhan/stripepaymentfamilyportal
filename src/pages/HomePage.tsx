@@ -60,7 +60,7 @@ export function HomePage({ onNavigate }: HomePageProps) {
 
   return (
     <div className="animate-fade-in">
-      {/* Hero — cream background, large editorial type */}
+      {/* Hero */}
       <section className="relative overflow-hidden bg-cream pt-32 pb-20 sm:pt-40 sm:pb-32">
         <div className="absolute inset-0 texture-warm" />
         <div className="relative mx-auto max-w-6xl px-6">
@@ -104,7 +104,7 @@ export function HomePage({ onNavigate }: HomePageProps) {
               </div>
             </div>
 
-            {/* Hero visual: payment split demo card */}
+            {/* Hero visual */}
             <div className="relative">
               <div className="rounded-3xl border border-neutral-border bg-white p-6">
                 <div className="mb-4 flex items-center justify-between">
@@ -150,7 +150,7 @@ export function HomePage({ onNavigate }: HomePageProps) {
         </div>
       </section>
 
-      {/* Features — cream bg, white cards */}
+      {/* Features */}
       <section className="bg-cream py-20">
         <div className="mx-auto max-w-6xl px-6">
           <div className="mb-12 text-center">
@@ -173,7 +173,7 @@ export function HomePage({ onNavigate }: HomePageProps) {
         </div>
       </section>
 
-      {/* Dark band — process/steps section */}
+      {/* Dark band — process */}
       <section className="bg-brown-near py-20">
         <div className="mx-auto max-w-6xl px-6">
           <div className="mb-12 text-center">
@@ -206,7 +206,7 @@ export function HomePage({ onNavigate }: HomePageProps) {
         </div>
       </section>
 
-      {/* Demo patients — cream bg */}
+      {/* Demo patients */}
       <section className="bg-cream py-20">
         <div className="mx-auto max-w-6xl px-6">
           <div className="mb-6">
@@ -242,7 +242,7 @@ export function HomePage({ onNavigate }: HomePageProps) {
         </div>
       </section>
 
-      {/* POA Portal — dark band with SMS showcase */}
+      {/* POA Portal dark band */}
       <section className="bg-brown-near py-20">
         <div className="mx-auto max-w-6xl px-6">
           <div className="grid items-center gap-10 lg:grid-cols-2">
@@ -288,7 +288,7 @@ export function HomePage({ onNavigate }: HomePageProps) {
         </div>
       </section>
 
-      {/* Security — cream bg with white card */}
+      {/* Security */}
       <section className="bg-cream py-20">
         <div className="mx-auto max-w-6xl px-6">
           <div className="rounded-3xl border border-neutral-border bg-white p-8 sm:p-12">
@@ -328,7 +328,7 @@ export function HomePage({ onNavigate }: HomePageProps) {
         </div>
       </section>
 
-      {/* CTA Banner */}
+      {/* CTA */}
       <section className="bg-cream pb-20 px-6">
         <div className="mx-auto max-w-5xl">
           <CtaBanner

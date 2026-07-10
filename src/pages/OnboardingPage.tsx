@@ -91,7 +91,7 @@ export function OnboardingPage({ onNavigate }: OnboardingPageProps) {
         phone,
         member_id: insuranceType === 'Self-Pay' ? null : memberId,
         insurance_plan_name: insuranceType === 'Self-Pay' ? 'Self-Pay' : planName,
-        insurance_type: insuranceType,
+        insurance_type: insuranceType as Patient['insurance_type'],
         copay_amount: parseFloat(copay) || 0,
         deductible_total: parseFloat(deductibleTotal) || 0,
         deductible_met: parseFloat(deductibleMet) || 0,
@@ -128,7 +128,6 @@ export function OnboardingPage({ onNavigate }: OnboardingPageProps) {
 
   return (
     <div className="min-h-screen bg-cream texture-warm">
-      {/* Onboarding header — dark band */}
       <header className="bg-brown-near py-4">
         <div className="mx-auto flex max-w-4xl items-center justify-between px-6">
           <button onClick={() => onNavigate({ name: 'home' })} className="flex items-center gap-2 text-sm text-cream-100/80 transition-colors duration-150 ease-brand hover:text-white">
@@ -435,7 +434,6 @@ export function OnboardingPage({ onNavigate }: OnboardingPageProps) {
         </div>
       </div>
 
-      {/* CTA at the bottom */}
       {step !== 'complete' && (
         <div className="px-6 pb-20">
           <div className="mx-auto max-w-4xl">
