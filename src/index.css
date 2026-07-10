@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600&family=Inter:wght@600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  body {
+    @apply bg-cream text-body;
+    font-family: 'Public Sans', 'Inter', 'Helvetica Neue', 'Segoe UI', Roboto, ui-sans-serif, system-ui, sans-serif;
+  }
+  ::selection {
+    @apply bg-primary-100 text-primary-500;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Inter', 'Helvetica Neue', ui-sans-serif, system-ui, sans-serif;
+  }
+}
+
+@layer components {
+  /* === BUTTONS === */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-medium text-white transition-all duration-150 ease-brand hover:bg-primary-400 active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-medium text-body border border-neutral-border transition-all duration-150 ease-brand hover:border-primary-200 hover:text-primary-500 active:scale-[0.98];
+  }
+  .btn-dark {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-brown-near px-6 py-3 text-sm font-medium text-white transition-all duration-150 ease-brand hover:bg-brown-black active:scale-[0.98];
+  }
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-4 py-2 text-sm font-medium text-body-muted transition-colors duration-150 ease-brand hover:bg-cream-100 hover:text-body;
+  }
+  .btn-white {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-medium text-brown-near transition-all duration-150 ease-brand hover:bg-cream-100 active:scale-[0.98];
+  }
+
+  /* === CARDS === */
+  .card {
+    @apply rounded-2xl bg-white border border-neutral-border;
+  }
+  .card-dark {
+    @apply rounded-2xl bg-brown-near text-white border border-brown-deepest;
+  }
+
+  /* === FORMS === */
+  .input {
+    @apply w-full rounded-2xl bg-white px-4 py-3 text-body-lg text-body placeholder-body-muted transition-colors duration-150 ease-brand focus:outline-none focus:ring-2 focus:ring-primary-200;
+  }
+  .label {
+    @apply mb-1.5 block text-eyebrow uppercase tracking-wider text-body-muted;
+  }
+  .label-required::after {
+    content: ' *';
+    @apply text-primary;
+  }
+
+  /* === BADGES === */
+  .badge {
+    @apply inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-medium;
+  }
+  .badge-success {
+    @apply badge bg-success-50 text-success-700;
+  }
+  .badge-warning {
+    @apply badge bg-warning-50 text-warning-700;
+  }
+  .badge-danger {
+    @apply badge bg-danger-50 text-danger-700;
+  }
+  .badge-primary {
+    @apply badge bg-primary-50 text-primary-500;
+  }
+  .badge-neutral {
+    @apply badge bg-cream-100 text-body-muted;
+  }
+  .badge-dark {
+    @apply badge bg-brown-deepest/40 text-cream-100;
+  }
+
+  /* === EYEBROW === */
+  .eyebrow {
+    @apply inline-flex items-center gap-2 text-eyebrow uppercase tracking-wider text-primary-500;
+  }
+  .eyebrow::before {
+    content: '';
+    @apply inline-block h-2 w-2 rounded-sm bg-primary;
+  }
+
+  /* === LINKS === */
+  .link {
+    @apply text-brown underline-offset-2 hover:underline transition-colors duration-150 ease-brand;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  /* Diagonal sheen for CTA banner */
+  .sheen {
+    background-image: linear-gradient(135deg, transparent 35%, rgba(255, 255, 255, 0.12) 50%, transparent 65%);
+  }
+  /* Warm texture overlay */
+  .texture-warm {
+    background-image: radial-gradient(circle at 30% 20%, rgba(122, 51, 7, 0.03), transparent 50%), radial-gradient(circle at 80% 80%, rgba(203, 85, 11, 0.02), transparent 50%);
+  }
+}
